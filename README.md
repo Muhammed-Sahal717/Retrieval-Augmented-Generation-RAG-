@@ -55,9 +55,9 @@ The pipeline is explicitly modularized so that each core concept can be understo
    ```
    Or using `pip`:
    ```bash
-   pip install -r requirements.txt
+   pip install .
    ```
-   *(Note: This project natively uses `uv.lock` and `pyproject.toml`)*
+   *(Note: This project is natively managed using `uv` with `pyproject.toml` and `uv.lock`)*
 
 ## Usage
 
