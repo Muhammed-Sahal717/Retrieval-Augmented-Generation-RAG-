@@ -1,10 +1,11 @@
 from pathlib import Path
+from typing import ClassVar
 
 
 class TextLoader:
     """Loads and extracts text from local .txt and .md files."""
     
-    SUPPORTED_EXTENSIONS = {".txt", ".md"}
+    SUPPORTED_EXTENSIONS: ClassVar[set[str]] = {".txt", ".md"}
 
     @classmethod
     def load(cls, file_path: str | Path) -> str:

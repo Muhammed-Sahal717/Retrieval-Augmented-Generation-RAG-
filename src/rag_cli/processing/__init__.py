@@ -1,3 +1,3 @@
-from .chunker import TextChunker, DocumentChunk
+from .chunker import DocumentChunk, TextChunker
 
-__all__ = ["TextChunker", "DocumentChunk"]
+__all__ = ["DocumentChunk", "TextChunker"]

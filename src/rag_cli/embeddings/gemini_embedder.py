@@ -1,5 +1,5 @@
 import os
-from typing import List
+
 from google import genai
 
 from rag_cli.processing.chunker import DocumentChunk
@@ -24,7 +24,7 @@ class GeminiEmbedder:
         self.client = genai.Client(api_key=key)
         self.model = model
 
-    def embed_text(self, text: str) -> List[float]:
+    def embed_text(self, text: str) -> list[float]:
         """
         Generates an embedding for a single string of text.
         Useful for generating embeddings for user queries.
@@ -40,7 +40,7 @@ class GeminiEmbedder:
         # We assume response.embeddings[0].values contains the floats
         return response.embeddings[0].values
 
-    def embed_chunks(self, chunks: List[DocumentChunk]) -> List[List[float]]:
+    def embed_chunks(self, chunks: list[DocumentChunk]) -> list[list[float]]:
         """
         Generates embeddings for a list of DocumentChunks.
         Returns a list of embedding vectors corresponding to each chunk.

@@ -1,5 +1,6 @@
 import os
-from typing import List, Dict, Any
+from typing import Any
+
 from google import genai
 
 
@@ -19,7 +20,7 @@ class Generator:
         self.client = genai.Client(api_key=key)
         self.model = model
 
-    def build_prompt(self, question: str, context_chunks: List[Dict[str, Any]]) -> str:
+    def build_prompt(self, question: str, context_chunks: list[dict[str, Any]]) -> str:
         """
         Builds the RAG prompt by combining the question, instructions, and context.
         """
@@ -47,7 +48,7 @@ Answer:
 """
         return prompt
 
-    def generate_answer(self, question: str, context_chunks: List[Dict[str, Any]]) -> str:
+    def generate_answer(self, question: str, context_chunks: list[dict[str, Any]]) -> str:
         """
         Builds the prompt and sends it to Gemini to generate the grounded answer.
         

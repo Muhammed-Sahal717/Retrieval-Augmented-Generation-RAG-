@@ -1,6 +1,7 @@
 import argparse
-import sys
 import logging
+import sys
+
 from rag_cli.services.rag_service import RAGService
 
 # Suppress google-genai AFC warnings

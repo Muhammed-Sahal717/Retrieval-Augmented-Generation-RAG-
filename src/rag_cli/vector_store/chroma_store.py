@@ -1,6 +1,7 @@
 import os
+from typing import Any
+
 import chromadb
-from typing import List, Dict, Any
 
 from rag_cli.processing.chunker import DocumentChunk
 
@@ -20,7 +21,7 @@ class ChromaStore:
         # Get or create the collection
         self.collection = self.client.get_or_create_collection(name=collection_name)
 
-    def store_chunks(self, chunks: List[DocumentChunk], embeddings: List[List[float]]) -> None:
+    def store_chunks(self, chunks: list[DocumentChunk], embeddings: list[list[float]]) -> None:
         """
         Stores document chunks and their corresponding embeddings into ChromaDB.
         
@@ -58,7 +59,7 @@ class ChromaStore:
             metadatas=metadatas
         )
 
-    def search(self, query_embedding: List[float], n_results: int = 3) -> List[Dict[str, Any]]:
+    def search(self, query_embedding: list[float], n_results: int = 3) -> list[dict[str, Any]]:
         """
         Searches the vector database for the most relevant chunks.
         
@@ -86,7 +87,7 @@ class ChromaStore:
                 "id": results['ids'][0][idx],
                 "document": results['documents'][0][idx],
                 "metadata": results['metadatas'][0][idx],
-                "distance": results['distances'][0][idx] if 'distances' in results and results['distances'] else None
+                "distance": results['distances'][0][idx] if results.get('distances') else None
             }
             formatted_results.append(res)
             

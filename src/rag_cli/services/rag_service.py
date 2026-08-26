@@ -1,12 +1,12 @@
 import os
-from typing import Dict, Any
+from typing import Any
 
+from rag_cli.embeddings.gemini_embedder import GeminiEmbedder
+from rag_cli.generation.generator import Generator
 from rag_cli.loaders.text_loader import TextLoader
 from rag_cli.processing.chunker import TextChunker
-from rag_cli.embeddings.gemini_embedder import GeminiEmbedder
-from rag_cli.vector_store.chroma_store import ChromaStore
 from rag_cli.retrieval.retriever import Retriever
-from rag_cli.generation.generator import Generator
+from rag_cli.vector_store.chroma_store import ChromaStore
 
 
 class RAGService:
@@ -45,7 +45,7 @@ class RAGService:
         # 4. Store chunks and embeddings
         self.vector_store.store_chunks(chunks, embeddings)
 
-    def ask_question(self, question: str) -> Dict[str, Any]:
+    def ask_question(self, question: str) -> dict[str, Any]:
         """
         Executes the Question Answering Flow.
         Retrieves relevant context and generates an answer.

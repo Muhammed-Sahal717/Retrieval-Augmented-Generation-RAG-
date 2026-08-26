@@ -1,6 +1,6 @@
 import hashlib
 from dataclasses import dataclass
-from typing import List
+
 
 @dataclass
 class DocumentChunk:
@@ -22,7 +22,7 @@ class TextChunker:
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
 
-    def chunk_document(self, text: str, source_document: str) -> List[DocumentChunk]:
+    def chunk_document(self, text: str, source_document: str) -> list[DocumentChunk]:
         """
         Splits the document text into character-based chunks.
         

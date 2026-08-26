@@ -1,7 +1,8 @@
-from typing import List, Dict, Any
+from typing import Any
 
 from rag_cli.embeddings.gemini_embedder import GeminiEmbedder
 from rag_cli.vector_store.chroma_store import ChromaStore
+
 
 class Retriever:
     """Handles the semantic retrieval of relevant document chunks for a given query."""
@@ -13,7 +14,7 @@ class Retriever:
         self.embedder = embedder
         self.vector_store = vector_store
 
-    def retrieve(self, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
+    def retrieve(self, query: str, top_k: int = 3) -> list[dict[str, Any]]:
         """
         Retrieves the most semantically relevant chunks for the given query.
         
