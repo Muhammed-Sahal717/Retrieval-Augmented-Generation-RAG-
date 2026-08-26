@@ -1,6 +1,10 @@
 import argparse
 import sys
+import logging
 from rag_cli.services.rag_service import RAGService
+
+# Suppress google-genai AFC warnings
+logging.getLogger("google_genai.models").setLevel(logging.ERROR)
 
 def main() -> None:
     parser = argparse.ArgumentParser(
